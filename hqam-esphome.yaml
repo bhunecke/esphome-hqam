@@ -51,5 +51,4 @@ packages:
         components/confs/select.yaml,
         components/confs/sensor.yaml,
         components/confs/textsensor.yaml,
-        # components/confs/switch.yaml,
       ]
