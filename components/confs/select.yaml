@@ -10,7 +10,14 @@ select:
       - "DEMO"
     lambda: |-
       esphome::mower::Automower *mower = (esphome::mower::Automower *) id(mower_id);
-      return {mower->get_mode_text_sensor()->state};
+      auto mode = mower->get_mode_text_sensor()->state;
+      if (mode == "MAN" || mode == "AUTO" || mode == "HOME" || mode == "DEMO") {
+        return mode;
+      }
+      if (mode == "Charging then AUTO") {
+        return std::string("AUTO");
+      }
+      return {};
     set_action:
       then:
         - lambda: |-
