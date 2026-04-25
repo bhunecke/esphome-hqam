@@ -10,6 +10,10 @@ esphome:
   name: ${name}
   friendly_name: ${friendlyName}
 
+logger:
+  level: DEBUG
+  baud_rate: 0
+
 time:
   - platform: homeassistant
     id: homeassistant_time
